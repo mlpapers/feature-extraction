@@ -8,11 +8,14 @@
 - **PCA** Principal Component Analysis ([Wiki](https://en.wikipedia.org/wiki/Principal_component_analysis))
   - [On lines and planes of closest fit to systems of points in space](https://zenodo.org/record/1430636#.Xos47PFRVnx) (1901) *Karl Pearson*
   - Supervised PCA: [Prediction by Supervised Principal Components](https://web.stanford.edu/~hastie/Papers/spca_JASA.pdf) (2006) *Eric Bair, Trevor Hastie, Debashis Paul, Robert Tibshirani*
-  - Dual Principal Component Analysis
-  - Kernel Principal Component Analysis
+  - Sparse PCA ([sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.SparsePCA.html#sklearn.decomposition.SparsePCA))
+  - **DPCA** Dual Principal Component Analysis
+  - **KPCA** Kernel Principal Component Analysis ([sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.KernelPCA.html#sklearn.decomposition.KernelPCA))
   - **IPCA** Incremental (online) PCA ([CRAN](https://cran.r-project.org/web/packages/onlinePCA/), [sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.IncrementalPCA.html#sklearn.decomposition.IncrementalPCA))
 - **ICA** Independent Component Analysis ([Wiki](https://en.wikipedia.org/wiki/Independent_component_analysis))
+  - [Independent Component Analysis: Algorithms and Applications](http://mlsp.cs.cmu.edu/courses/fall2012/lectures/ICA_Hyvarinen.pdf) (2000) *Aapo Hyvärinen, Erkki Oja*
   - [Independent Component Analysis](https://www.cs.helsinki.fi/u/ahyvarin/papers/bookfinal_ICA.pdf) (2001) - Free ebook *Aapo Hyvarinen, Juha Karhunen, Erkki Oja*
+  - FastICA ([sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FastICA.html#sklearn.decomposition.FastICA))
 - **FLDA** Fisher's Linear Discriminant Analysis (Supervised) ([Wiki](https://en.wikipedia.org/wiki/Linear_discriminant_analysis))  
   > Similar to PCA, FLDA calculates the projection of data along a direction; however, rather than maximizing the variation of data, FLDA utilizes label information to get a projection maximizing the ratio of between-class variance to within-class variance. ([Source](https://arxiv.org/pdf/1905.02845.pdf))
   - [The Use of Multiple Measurements in Taxonomic Problems](https://digital.library.adelaide.edu.au/dspace/bitstream/2440/15227/1/138.pdf) (1936) *R. A. Fisher*
@@ -21,7 +24,9 @@
   - Package: MASS includes lda ([CRAN](https://cran.r-project.org/web/packages/MASS/))
   - Package: sda ([CRAN](https://cran.r-project.org/web/packages/sda/index.html))
 - **KFLDA** Kernel Fisher Linear Discriminant Analysis
-- **Factor analysys**  
+- **Latent Dirichlet Allocation**
+  - [Online Learning for Latent Dirichlet Allocation](https://www.di.ens.fr/~fbach/mdhnips2010.pdf) (2010) *Matthew D. Hoffman, David M. Blei, Francis Bach*
+- **Factor analysys** ([Wiki](https://en.wikipedia.org/wiki/Factor_analysis), [sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FactorAnalysis.html#sklearn.decomposition.FactorAnalysis))  
   > This technique is used to reduce a large number of variables into fewer numbers of factors. The values of observed data are expressed as functions of a number of possible causes in order to find which are the most important. The observations are assumed to be caused by a linear transformation of lower-dimensional latent factors and added Gaussian noise. ([Source](https://towardsdatascience.com/dimensionality-reduction-101-for-dummies-like-me-abcfb2551794))
 - **t-SNE** ([Homepage](https://lvdmaaten.github.io/tsne/), [Wiki](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding), [CRAN](https://cran.r-project.org/web/packages/tsne/), [sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html))
   - [Visualizing Data using t-SNE](https://lvdmaaten.github.io/publications/papers/JMLR_2008.pdf) (2008) *Laurens van der Maaten, Geoffrey Hinton*
@@ -30,7 +35,6 @@
     - [Tree-SNE: Hierarchical Clustering and Visualization Using t-SNE](https://arxiv.org/pdf/2002.05687) (2020) *Isaac Robinson, Emma Pierce-Hoffman*
   - **Let-SNE**
     - [Let-SNE: A Hybrid Approach to Data Embedding and Visualization of Hyperspectral Imagery](https://arxiv.org/pdf/1910.08790.pdf) (2020) *Megh Shukla, Biplab Banerjee, Krishna Mohan Buddhiraju*
-- **Kernel PCA**
 - **LLE** Locally Linear Embedding  
   > Constructs a k-nearest neighbor graph similar to Isomap. Then it tries to locally represent every data sample x i using a weighted summation of its k-nearest neighbors. ([Source](https://arxiv.org/pdf/1905.02845.pdf))
 - **HLLE** Hessian Eigenmapping  
