@@ -10,24 +10,24 @@
   - Dual Principal Component Analysis
   - Kernel Principal Component Analysis
 - **ICA** Independent Component Analysis ([Wiki](https://en.wikipedia.org/wiki/Independent_component_analysis))
-- **FLDA** Fisher Linear Discriminant Analysis
+- **FLDA** Fisher Linear Discriminant Analysis  
+  > Similar to PCA, FLDA calculates the projection of data along a direction; however, rather than maximizing the variation of data, FLDA utilizes label information to get a projection maximizing the ratio of between-class variance to within-class variance.
   - Supervised
-  - > Similar to PCA, FLDA calculates the projection of data along a direction; however, rather than maximizing the variation of data, FLDA utilizes label information to get a projection maximizing the ratio of between-class variance to within-class variance.
 - **KFLDA** Kernel Fisher Linear Discriminant Analysis
-- **Factor analysys**
-  - > This technique is used to reduce a large number of variables into fewer numbers of factors. The values of observed data are expressed as functions of a number of possible causes in order to find which are the most important. The observations are assumed to be caused by a linear transformation of lower-dimensional latent factors and added Gaussian noise.
+- **Factor analysys**  
+  > This technique is used to reduce a large number of variables into fewer numbers of factors. The values of observed data are expressed as functions of a number of possible causes in order to find which are the most important. The observations are assumed to be caused by a linear transformation of lower-dimensional latent factors and added Gaussian noise.
 - **t-SNE** ([Homepage](https://lvdmaaten.github.io/tsne/), [Wiki](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding), [CRAN](https://cran.r-project.org/web/packages/tsne/), [sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html))
-  - [Visualizing Data using t-SNE](https://lvdmaaten.github.io/publications/papers/JMLR_2008.pdf) (2008) *[Laurens van der Maaten](http://lvdmaaten.github.io/), Geoffrey Hinton*
-  - [Accelerating t-SNE using Tree-Based Algorithms](https://lvdmaaten.github.io/publications/papers/JMLR_2014.pdf) (2014) *[Laurens van der Maaten](http://lvdmaaten.github.io/)*
+  - [Visualizing Data using t-SNE](https://lvdmaaten.github.io/publications/papers/JMLR_2008.pdf) (2008) *Laurens van der Maaten, Geoffrey Hinton*
+  - [Accelerating t-SNE using Tree-Based Algorithms](https://lvdmaaten.github.io/publications/papers/JMLR_2014.pdf) (2014) *Laurens van der Maaten*
   - **Tree-SNE** - Hieararchical t-SNE  ([Code](https://github.com/isaacrob/treesne))
     - [Tree-SNE: Hierarchical Clustering and Visualization Using t-SNE](https://arxiv.org/pdf/2002.05687) (2020) *Isaac Robinson, Emma Pierce-Hoffman*
   - **Let-SNE**
     - [Let-SNE: A Hybrid Approach to Data Embedding and Visualization of Hyperspectral Imagery](https://arxiv.org/pdf/1910.08790.pdf) (2020) *Megh Shukla, Biplab Banerjee, Krishna Mohan Buddhiraju*
 - **Kernel PCA**
-- **LLE** Locally Linear Embedding
-  - > Constructs a k-nearest neighbor graph similar to Isomap. Then it tries to locally represent every data sample x i using a weighted summation of its k-nearest neighbors.
-- **HLLE** Hessian Eigenmapping
-  - > Projects data to a lower dimension while preserving the local neighborhood like LLE but uses the Hessian operator to better achieve this result and hence the name.
+- **LLE** Locally Linear Embedding  
+  > Constructs a k-nearest neighbor graph similar to Isomap. Then it tries to locally represent every data sample x i using a weighted summation of its k-nearest neighbors.
+- **HLLE** Hessian Eigenmapping  
+  > Projects data to a lower dimension while preserving the local neighborhood like LLE but uses the Hessian operator to better achieve this result and hence the name.
 - **Laplacian Eigenmap** Spectral Embedding
 - **Maximum Variance Unfolding**
 - **NMF** Non-negative matrix factorization
