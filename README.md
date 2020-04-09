@@ -34,6 +34,7 @@
 - **NMF** Non-negative matrix factorization
 - **Isomap**
 - **UMAP** Uniform Manifold Approximation and Projection ([Code](https://github.com/lmcinnes/umap), ([GPU version](https://docs.rapids.ai/api/cuml/stable/api.html#umap))
+  - [UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction](https://arxiv.org/pdf/1802.03426) (2018) *Leland McInnes, John Healy, James Melville*
 - **Trimap** ([Code](https://github.com/eamid/trimap), [PyPI](https://pypi.org/project/trimap/))
   - [Trimap: Large-scale Dimensionality Reduction Using Triplets](https://arxiv.org/pdf/1910.00204.pdf) (2019) *Ehsan Amid, Manfred K. Warmuth*
 - **Autoencoders** ([Wiki](https://en.wikipedia.org/wiki/Autoencoder))
