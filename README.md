@@ -2,7 +2,7 @@
 > In machine learning, pattern recognition and in image processing, feature extraction starts from an initial set of measured data and builds derived values (features) intended to be informative and non-redundant, facilitating the subsequent learning and generalization steps, and in some cases leading to better human interpretations. Feature extraction is related to dimensionality reduction. ([Wiki](https://en.wikipedia.org/wiki/Feature_extraction))
 
 - **Overview**
-  - [A survey of dimensionality reduction techniques](https://arxiv.org/pdf/1403.2877.pdf)
+  - [A survey of dimensionality reduction techniques](https://arxiv.org/pdf/1403.2877.pdf) *C.O.S.Sorzano, J.Vargas, A.Pascual‐Montano*
   - [Feature Selection and Feature Extraction in Pattern Analysis: A Literature Review](https://arxiv.org/pdf/1905.02845.pdf) (2019) *Benyamin Ghojogh, Maria N. Samad, Sayema Asif Mashhadi,Tania Kapoor, Wahab Ali, Fakhri Karray, Mark Crowley*
 
 - **PCA** Principal Component Analysis ([Wiki](https://en.wikipedia.org/wiki/Principal_component_analysis))
