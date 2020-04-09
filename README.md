@@ -10,10 +10,16 @@
   - Supervised PCA: [Prediction by Supervised Principal Components](https://web.stanford.edu/~hastie/Papers/spca_JASA.pdf) (2006) *Eric Bair, Trevor Hastie, Debashis Paul, Robert Tibshirani*
   - Dual Principal Component Analysis
   - Kernel Principal Component Analysis
+  - **IPCA** Incremental (online) PCA ([CRAN](https://cran.r-project.org/web/packages/onlinePCA/), [sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.IncrementalPCA.html#sklearn.decomposition.IncrementalPCA))
 - **ICA** Independent Component Analysis ([Wiki](https://en.wikipedia.org/wiki/Independent_component_analysis))
-- **FLDA** Fisher Linear Discriminant Analysis  
+  - [Independent Component Analysis](https://www.cs.helsinki.fi/u/ahyvarin/papers/bookfinal_ICA.pdf) (2001) - Free ebook *Aapo Hyvarinen, Juha Karhunen, Erkki Oja*
+- **FLDA** Fisher's Linear Discriminant Analysis (Supervised) ([Wiki](https://en.wikipedia.org/wiki/Linear_discriminant_analysis))  
   > Similar to PCA, FLDA calculates the projection of data along a direction; however, rather than maximizing the variation of data, FLDA utilizes label information to get a projection maximizing the ratio of between-class variance to within-class variance. ([Source](https://arxiv.org/pdf/1905.02845.pdf))
-  - Supervised
+  - [The Use of Multiple Measurements in Taxonomic Problems](https://digital.library.adelaide.edu.au/dspace/bitstream/2440/15227/1/138.pdf) (1936) *R. A. Fisher*
+  - [The Utilization of Multiple Measurements in Problems of Biological Classification](https://www.jstor.org/stable/2983775?seq=1) (1948) - require registration *C. Radhakrishna Rao*
+  - [PCA versus LDA](http://www2.ece.ohio-state.edu/~aleix/pami01.pdf) (2001) *Aleix M. Martinez, Avinash C. Kak*
+  - Package: MASS includes lda ([CRAN](https://cran.r-project.org/web/packages/MASS/))
+  - Package: sda ([CRAN](https://cran.r-project.org/web/packages/sda/index.html))
 - **KFLDA** Kernel Fisher Linear Discriminant Analysis
 - **Factor analysys**  
   > This technique is used to reduce a large number of variables into fewer numbers of factors. The values of observed data are expressed as functions of a number of possible causes in order to find which are the most important. The observations are assumed to be caused by a linear transformation of lower-dimensional latent factors and added Gaussian noise. ([Source](https://towardsdatascience.com/dimensionality-reduction-101-for-dummies-like-me-abcfb2551794))
