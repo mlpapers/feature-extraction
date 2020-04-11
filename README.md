@@ -42,7 +42,11 @@
 - **Laplacian Eigenmap** Spectral Embedding
 - **Maximum Variance Unfolding**
 - **NMF** Non-negative matrix factorization
-- **Isomap**
+- **Isomap** ([Homepage](https://web.mit.edu/cocosci/isomap/isomap.html), [Wiki](https://en.wikipedia.org/wiki/Isomap)))
+  - [A Global Geometric Framework for Nonlinear Dimensionality Reduction](https://web.mit.edu/cocosci/Papers/sci_reprint.pdf) (2000) *Joshua B. Tenenbaum, Vin de Silva, John C. Langford*
+  - Packages:
+      [dimRed](https://cran.r-project.org/web/packages/dimRed/dimRed.pdf),
+      [sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.Isomap.html)
 - **UMAP** Uniform Manifold Approximation and Projection ([Code](https://github.com/lmcinnes/umap), ([GPU version](https://docs.rapids.ai/api/cuml/stable/api.html#umap))
   - [UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction](https://arxiv.org/pdf/1802.03426) (2018) *Leland McInnes, John Healy, James Melville*
 - **Trimap** ([Code](https://github.com/eamid/trimap), [PyPI](https://pypi.org/project/trimap/))
