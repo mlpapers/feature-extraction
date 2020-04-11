@@ -25,7 +25,7 @@
   - Package: sda ([CRAN](https://cran.r-project.org/web/packages/sda/index.html))
 - **KFLDA** Kernel Fisher Linear Discriminant Analysis
 - **MDS** Multidimensional Scaling ([Wiki](https://en.wikipedia.org/wiki/Multidimensional_scaling))
-  - [An Introduction to MDS](https://www.mathpsy.uni-tuebingen.de/wickelmaier/pubs/Wickelmaier2003SQRU.pdf) (2003) *Florian Wickelmaier*
+  - [Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis](http://cda.psych.uiuc.edu/psychometrika_highly_cited_articles/kruskal_1964a.pdf) (1964) *J. B. Kruskal*
   - [An Analysis of Classical Multidimensional Scaling](https://arxiv.org/pdf/1812.11954.pdf) (2019) *Anna Little, Yuying Xie, Qiang Sun*
   - Packages:
       [sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.MDS.html)
