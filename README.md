@@ -9,9 +9,12 @@
   - [On lines and planes of closest fit to systems of points in space](https://zenodo.org/record/1430636#.Xos47PFRVnx) (1901) *Karl Pearson*
   - Supervised PCA: [Prediction by Supervised Principal Components](https://web.stanford.edu/~hastie/Papers/spca_JASA.pdf) (2006) *Eric Bair, Trevor Hastie, Debashis Paul, Robert Tibshirani*
   - Sparse PCA ([sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.SparsePCA.html#sklearn.decomposition.SparsePCA))
-  - **DPCA** Dual Principal Component Analysis
-  - **KPCA** Kernel Principal Component Analysis ([sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.KernelPCA.html#sklearn.decomposition.KernelPCA))
-  - **IPCA** Incremental (online) PCA ([CRAN](https://cran.r-project.org/web/packages/onlinePCA/), [sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.IncrementalPCA.html#sklearn.decomposition.IncrementalPCA))
+- **DPCA** Dual Principal Component Analysis
+- **KPCA** Kernel Principal Component Analysis ([sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.KernelPCA.html#sklearn.decomposition.KernelPCA), [Wiki](https://en.wikipedia.org/wiki/Kernel_principal_component_analysis))
+  - [Nonlinear Component Analysis as a Kernel Eigenvalue Problem](http://alex.smola.org/papers/1998/SchSmoMul98.pdf) (1998) *Bernhard Scholkopf, Alexander Smola, Klaus-Robert Muller*
+  - [Kernel PCA for Novelty Detection](http://www.heikohoffmann.de/documents/hoffmann_kpca_preprint.pdf) (2006) *Heiko Hoffmann*
+  - [Robust Kernel Principal Component Analysis](https://papers.nips.cc/paper/3566-robust-kernel-principal-component-analysis.pdf) *Minh Hoai Nguyen, Fernando De la Torre*
+- **IPCA** Incremental (online) PCA ([CRAN](https://cran.r-project.org/web/packages/onlinePCA/), [sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.IncrementalPCA.html#sklearn.decomposition.IncrementalPCA))
 - **ICA** Independent Component Analysis ([Wiki](https://en.wikipedia.org/wiki/Independent_component_analysis))
   - [Independent Component Analysis: Algorithms and Applications](http://mlsp.cs.cmu.edu/courses/fall2012/lectures/ICA_Hyvarinen.pdf) (2000) *Aapo Hyvärinen, Erkki Oja*
   - [Independent Component Analysis](https://www.cs.helsinki.fi/u/ahyvarin/papers/bookfinal_ICA.pdf) (2001) - Free ebook *Aapo Hyvarinen, Juha Karhunen, Erkki Oja*
