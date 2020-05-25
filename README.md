@@ -66,3 +66,21 @@
 - **SDE** Semi-definite embedding
 - **LargeVis**
   - [Visualizing Large-scale and High-dimensional Data](https://arxiv.org/abs/1602.00370) (2016) *Jian Tang, Jingzhou Liu, Ming Zhang, Qiaozhu Mei*
+
+### Software
+- **R**
+  - dimRed ([CRAN](https://cran.r-project.org/web/packages/dimRed/))
+  - dyndimred ([CRAN](https://cran.r-project.org/web/packages/dyndimred/))
+  - intrinsicDimemsion ([CRAN](https://cran.r-project.org/web/packages/intrinsicDimension/))
+  - Rdimtools ([Paper](https://arxiv.org/pdf/2005.11107.pdf), [CRAN](https://cran.r-project.org/web/packages/Rdimtools/))
+- **Python**
+  - scikit-learn
+  - umap-learn ([Homepage](https://umap-learn.readthedocs.io), [PyPI](https://pypi.org/project/umap-learn/))
+- **Javascript**
+  - tsne ([NPM](https://www.npmjs.com/package/tsne))
+  - umap-js ([NPM](https://www.npmjs.com/package/umap-js))
+  - dimred ([NPM](https://www.npmjs.com/package/dimred))
+- **C++**
+  - tapkee ([Code](https://github.com/lisitsyn/tapkee))
+- **Web**
+  - StatSim ([Vis](https://statsim.com/vis/))
