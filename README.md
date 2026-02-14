@@ -1,11 +1,3 @@
----
-title: "Feature Extraction"
-aliases: ["Dimensionality reduction", "Feature engineering"]
-tags:
-  - dimensionality-reduction
-  - unsupervised
-  - representation-learning
----
 # Feature extraction
 > In machine learning, pattern recognition and in image processing, feature extraction starts from an initial set of measured data and builds derived values (features) intended to be informative and non-redundant, facilitating the subsequent learning and generalization steps, and in some cases leading to better human interpretations. Feature extraction is related to dimensionality reduction. ([Wiki](https://en.wikipedia.org/wiki/Feature_extraction))
 
