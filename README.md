@@ -1,3 +1,11 @@
+---
+title: "Feature Extraction"
+aliases: ["Dimensionality reduction", "Feature engineering"]
+tags:
+  - dimensionality-reduction
+  - unsupervised
+  - representation-learning
+---
 # Feature extraction
 > In machine learning, pattern recognition and in image processing, feature extraction starts from an initial set of measured data and builds derived values (features) intended to be informative and non-redundant, facilitating the subsequent learning and generalization steps, and in some cases leading to better human interpretations. Feature extraction is related to dimensionality reduction. ([Wiki](https://en.wikipedia.org/wiki/Feature_extraction))
 
@@ -67,7 +75,7 @@
 - **LargeVis**
   - [Visualizing Large-scale and High-dimensional Data](https://arxiv.org/abs/1602.00370) (2016) *Jian Tang, Jingzhou Liu, Ming Zhang, Qiaozhu Mei*
 
-### Software
+## Software
 - **R**
   - dimRed ([CRAN](https://cran.r-project.org/web/packages/dimRed/))
   - dyndimred ([CRAN](https://cran.r-project.org/web/packages/dyndimred/))
@@ -84,3 +92,9 @@
   - tapkee ([Code](https://github.com/lisitsyn/tapkee))
 - **Web**
   - StatSim ([Vis](https://statsim.com/vis/))
+
+## Related Topics
+- [Feature Selection](https://mlpapers.org/feature-selection/)
+- [Neural Networks](https://mlpapers.org/neural-nets/)
+- [Multiview Learning](https://mlpapers.org/multiview-learning/)
+- [Clustering](https://mlpapers.org/clustering/)
