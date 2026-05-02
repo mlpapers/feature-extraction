@@ -59,6 +59,8 @@
   - [UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction](https://arxiv.org/pdf/1802.03426) (2018) *Leland McInnes, John Healy, James Melville*
 - **Trimap** ([Code](https://github.com/eamid/trimap), [PyPI](https://pypi.org/project/trimap/))
   - [Trimap: Large-scale Dimensionality Reduction Using Triplets](https://arxiv.org/pdf/1910.00204.pdf) (2019) *Ehsan Amid, Manfred K. Warmuth*
+- **p-SNE** Poisson Stochastic Neighbor Embedding ([Code](https://github.com/NogaMudrik/PSNE-Poisson-Stochastic-Neighbor-Embedding))
+  - [Neighbor Embedding for High-Dimensional Sparse Poisson Data](https://arxiv.org/abs/2604.16932) (2026) *Noga Mudrik, Adam S. Charles*
 - **Autoencoders** ([Wiki](https://en.wikipedia.org/wiki/Autoencoder))
 - **SOM** Self-Organizing Maps or Kohonen Maps ([Wiki](https://en.wikipedia.org/wiki/Self-organizing_map))
   - [Self-Organized Formation of Topologically Correct Feature Maps](http://www.cnbc.cmu.edu/~tai/nc19journalclubs/Kohonen1982_Article_Self-organizedFormationOfTopol.pdf) (1982) *Teuvo Kohonen*
@@ -76,6 +78,7 @@
 - **Python**
   - scikit-learn
   - umap-learn ([Homepage](https://umap-learn.readthedocs.io), [PyPI](https://pypi.org/project/umap-learn/))
+  - p-SNE ([Code](https://github.com/NogaMudrik/PSNE-Poisson-Stochastic-Neighbor-Embedding))
 - **Javascript**
   - tsne ([NPM](https://www.npmjs.com/package/tsne))
   - umap-js ([NPM](https://www.npmjs.com/package/umap-js))
