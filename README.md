@@ -1,17 +1,19 @@
 # Feature Extraction and Representation Learning
 
+🔒 Full text at this link requires payment or institutional access. Unmarked links may be unchecked.
+
 ## Surveys
 
 - **Representation Learning: A Review and New Perspectives** - Probabilistic models, autoencoders, manifold learning. [Bengio et al. 2013](<https://arxiv.org/abs/1206.5538> "Representation Learning: A Review and New Perspectives; TPAMI").
-- **A Survey of Dimensionality Reduction Techniques** - [Sorzano et al. 2014](<https://arxiv.org/abs/1403.2877> "A survey of dimensionality reduction techniques; arXiv").
-- **Feature Selection and Feature Extraction in Pattern Analysis** - [Ghojogh et al. 2019](<https://arxiv.org/abs/1905.02845> "Feature Selection and Feature Extraction in Pattern Analysis: A Literature Review; arXiv").
+- **A Survey of Dimensionality Reduction Techniques** - Categorizes dimensionality-reduction techniques and explains their mathematical foundations. [Sorzano et al. 2014](<https://arxiv.org/abs/1403.2877> "A survey of dimensionality reduction techniques; arXiv").
+- **Feature Selection and Feature Extraction in Pattern Analysis** - Reviews the theory, applications, and numerical implementations of feature selection and extraction methods. [Ghojogh et al. 2019](<https://arxiv.org/abs/1905.02845> "Feature Selection and Feature Extraction in Pattern Analysis: A Literature Review; arXiv").
 
 ## Fixed and domain-informed features
 
 ### Text and image descriptors
 
 - **Text vectorization** - Sparse word/character n-grams, TF-IDF, and feature hashing. [docs](<https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction>).
-- **Image descriptors** - SIFT describes local keypoints; HOG summarizes local gradient orientations. [Lowe 2004](<https://doi.org/10.1023/B:VISI.0000029664.99615.94> "Distinctive Image Features from Scale-Invariant Keypoints; IJCV"), [Dalal and Triggs 2005](<https://doi.org/10.1109/CVPR.2005.177> "Histograms of Oriented Gradients for Human Detection; CVPR").
+- **Image descriptors** - SIFT describes local keypoints; HOG summarizes local gradient orientations. [Lowe 2004](<https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf> "Distinctive Image Features from Scale-Invariant Keypoints; IJCV"), [Dalal and Triggs 2005](<https://doi.org/10.1109/CVPR.2005.177> "Histograms of Oriented Gradients for Human Detection; CVPR").
 
 ### Signal and time-series transforms
 
@@ -29,13 +31,13 @@
 - **Truncated SVD / latent semantic analysis** - Low-rank approximation without PCA's centering step, allowing sparse document-term inputs. [Deerwester et al. 1990](<https://doi.org/10.1002/(SICI)1097-4571(199009)41:6%3C391::AID-ASI1%3E3.0.CO;2-9> "Indexing by latent semantic analysis; J. Am. Soc. Inf. Sci."); [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html>).
 - **ICA (independent component analysis)** - Linear separation of statistically independent sources. [Hyvärinen and Oja 2000](<https://doi.org/10.1016/S0893-6080(00)00026-5> "Independent component analysis: algorithms and applications; Neural Networks"), [Hyvärinen et al. 2001](<https://www.cs.helsinki.fi/u/ahyvarin/papers/bookfinal_ICA.pdf> "Independent Component Analysis; book"); [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FastICA.html>).
 - **Factor analysis** - A linear latent-factor model with feature-specific Gaussian noise. [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FactorAnalysis.html>).
-- **NMF (non-negative matrix factorization)** - Additive factorization of non-negative data. [Lee and Seung 1999](<https://doi.org/10.1038/44565> "Learning the parts of objects by non-negative matrix factorization; Nature"); [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html>).
+- **NMF (non-negative matrix factorization)** - Additive factorization of non-negative data. [Lee and Seung 1999 🔒](<https://doi.org/10.1038/44565> "Learning the parts of objects by non-negative matrix factorization; Nature"); [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html>).
 - **Robust PCA / principal component pursuit** - Separates low-rank structure from sparse corruption (`X = L + S`), with recovery guarantees under rank, incoherence, and corruption assumptions. [Candes et al. 2011](<https://arxiv.org/abs/0912.3599> "Robust Principal Component Analysis?; JACM").
 - **Topic LDA (latent Dirichlet allocation)** - Document representations as topic mixtures. [Blei et al. 2003](<https://jmlr.org/papers/v3/blei03a.html> "Latent Dirichlet Allocation; JMLR"), [Hoffman et al. 2010](<https://www.di.ens.fr/~fbach/mdhnips2010.pdf> "Online Learning for Latent Dirichlet Allocation; NeurIPS").
 
 ### Sparse representations
 
-- **Sparse PCA** - Sparse component loadings, selecting which input variables contribute to each component. [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.SparsePCA.html>).
+- **Sparse PCA** - Sparse component loadings, selecting which input variables contribute to each component. [Zou et al. 2006](<https://doi.org/10.1198/106186006X113430> "Sparse Principal Component Analysis; JCGS"); [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.SparsePCA.html>).
 - **Dictionary learning / sparse coding** - Sparse sample codes over learned, possibly overcomplete dictionaries; sparsity applies to the codes rather than PCA loadings. [Mairal et al. 2010](<https://jmlr.org/papers/v11/mairal10a.html> "Online Learning for Matrix Factorization and Sparse Coding; JMLR"); [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.DictionaryLearning.html>).
 
 ### Supervised and multiview projections
@@ -46,9 +48,9 @@
 
 ## Kernel methods and random projections
 
-- **Random projections** - Gaussian or sparse random maps approximately preserve Euclidean distances under Johnson-Lindenstrauss conditions. [docs](<https://scikit-learn.org/stable/modules/random_projection.html>).
+- **Random projections** - Gaussian or sparse random maps approximately preserve Euclidean distances under Johnson-Lindenstrauss conditions. [Achlioptas 2003](<https://doi.org/10.1016/S0022-0000(03)00025-4> "Database-friendly random projections: Johnson-Lindenstrauss with binary coins; JCSS"); [docs](<https://scikit-learn.org/stable/modules/random_projection.html>).
 - **Kernel PCA** - Component analysis in an implicit kernel feature space. [Schölkopf et al. 1998](<https://doi.org/10.1162/089976698300017467> "Nonlinear Component Analysis as a Kernel Eigenvalue Problem; Neural Comput."); [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.KernelPCA.html>).
-    - **Extensions** - Novelty detection  -  Hoffmann; robust kernel PCA  -  Nguyen, De la Torre. [Hoffmann 2007](<https://www.heikohoffmann.de/documents/hoffmann_kpca_preprint.pdf> "Kernel PCA for Novelty Detection; Pattern Recognition"), [Nguyen and De la Torre 2008](<https://papers.nips.cc/paper/3566-robust-kernel-principal-component-analysis> "Robust Kernel Principal Component Analysis; Advances in Neural Information Processing Systems").
+    - **Kernel PCA extensions** - Kernel PCA for novelty detection and robust kernel PCA. [Hoffmann 2007](<https://www.heikohoffmann.de/documents/hoffmann_kpca_preprint.pdf> "Kernel PCA for Novelty Detection; Pattern Recognition"), [Nguyen and De la Torre 2008](<https://papers.nips.cc/paper/3566-robust-kernel-principal-component-analysis> "Robust Kernel Principal Component Analysis; Advances in Neural Information Processing Systems").
 - **Kernel Fisher discriminant analysis** - Supervised class separation in a kernel feature space. [Mika et al. 1999](<https://doi.org/10.1109/NNSP.1999.788121> "Fisher discriminant analysis with kernels; NNSP").
 - **Random Fourier features** - Sampled Fourier maps approximate shift-invariant kernels. Unlike distance-preserving random projections, these construct nonlinear features and may expand dimension. [Rahimi and Recht 2007](<https://papers.nips.cc/paper/3182-random-features-for-large-scale-kernel-machines> "Random Features for Large-Scale Kernel Machines; NeurIPS").
 - **Nyström approximation** - Sampled data landmarks approximate the kernel matrix; an alternative to Fourier sampling. [Williams and Seeger 2000](<https://proceedings.neurips.cc/paper/2000/hash/19de10adbaa1b2ee13f77f679fa1483a-Abstract.html> "Using the Nyström Method to Speed Up Kernel Machines; NeurIPS"); [docs](<https://scikit-learn.org/stable/modules/kernel_approximation.html>).
@@ -59,14 +61,14 @@
 
 - **MDS (multidimensional scaling)** - Fits coordinates to dissimilarities or their ordering. [Kruskal 1964](<https://doi.org/10.1007/BF02289565> "Multidimensional Scaling by Optimizing Goodness of Fit to a Nonmetric Hypothesis; Psychometrika"), [Little et al. 2018](<https://arxiv.org/abs/1812.11954> "Exact Cluster Recovery via Classical Multidimensional Scaling; arXiv"), [Little et al. 2022](<https://doi.org/10.1093/imaiai/iaac004> "An analysis of classical multidimensional scaling with applications to clustering; Information and Inference: A Journal of the IMA"); [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.manifold.MDS.html>).
 - **Sammon mapping** - Weighted distance reconstruction emphasizing smaller input distances. [Sammon 1969](<https://doi.org/10.1109/T-C.1969.222678> "A Nonlinear Mapping for Data Structure Analysis; IEEE Trans. Comput.").
-- **SOM (self-organizing maps)** - Updates grid-organized prototypes and their neighbors. [Kohonen 1982](<https://doi.org/10.1007/BF00337288> "Self-organized formation of topologically correct feature maps; Biol. Cybern.").
+- **SOM (self-organizing maps)** - Updates grid-organized prototypes and their neighbors. [Kohonen 1982 🔒](<https://doi.org/10.1007/BF00337288> "Self-organized formation of topologically correct feature maps; Biol. Cybern.").
 - **Isomap** - MDS on graph-approximated geodesic distances. [Tenenbaum et al. 2000](<https://doi.org/10.1126/science.290.5500.2319> "A Global Geometric Framework for Nonlinear Dimensionality Reduction; Science"); [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.manifold.Isomap.html>).
 - **LLE (locally linear embedding)** - Fits coordinates using fixed local linear reconstruction weights. [Roweis and Saul 2000](<https://doi.org/10.1126/science.290.5500.2323> "Nonlinear Dimensionality Reduction by Locally Linear Embedding; Science"); [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.manifold.LocallyLinearEmbedding.html>).
-    - **HLLE (Hessian eigenmapping)** - Manifold coordinates from local Hessian estimates. supported by scikit-learn's LLE interface. [Donoho and Grimes 2003](<https://doi.org/10.1073/pnas.1031596100> "Hessian eigenmaps: Locally linear embedding techniques for high-dimensional data; PNAS").
+    - **HLLE (Hessian eigenmapping)** - Manifold coordinates from local Hessian estimates. Supported by scikit-learn's LLE interface. [Donoho and Grimes 2003](<https://doi.org/10.1073/pnas.1031596100> "Hessian eigenmaps: Locally linear embedding techniques for high-dimensional data; PNAS").
 - **Laplacian eigenmaps / spectral embedding** - Graph-local similarity represented by Laplacian eigenvectors. [Belkin and Niyogi 2003](<https://doi.org/10.1162/089976603321780317> "Laplacian Eigenmaps for Dimensionality Reduction and Data Representation; Neural Comput.").
 - **Maximum variance unfolding / semidefinite embedding** - Maximizes spread while preserving local distances through semidefinite optimization. [Weinberger et al. 2005](<https://proceedings.mlr.press/r5/weinberger05a.html> "Nonlinear Dimensionality Reduction by Semidefinite Programming and Kernel Matrix Factorization; AISTATS").
 - **Diffusion maps** - Spectral coordinates reflecting random-walk connectivity across scales. [Coifman and Lafon 2006](<https://doi.org/10.1016/j.acha.2006.04.006> "Diffusion maps; ACHA").
-    - **PHATE** - Embeds distances between transformed diffusion probabilities to visualize continuous and branching structure. [Moon et al. 2019](<https://doi.org/10.1038/s41587-019-0336-3> "Visualizing structure and transitions in high-dimensional biological data; Nat Biotechnol"); [code](<https://github.com/KrishnaswamyLab/PHATE>).
+    - **PHATE** - Embeds distances between transformed diffusion probabilities to visualize continuous and branching structure. [Moon et al. 2019 🔒](<https://doi.org/10.1038/s41587-019-0336-3> "Visualizing structure and transitions in high-dimensional biological data; Nat Biotechnol"); [code](<https://github.com/KrishnaswamyLab/PHATE>).
 
 ### Neighborhood objectives and learned mappings
 
@@ -75,11 +77,11 @@
 - **LargeVis** - Approximate neighborhood-graph construction and probabilistic layout for large collections. [Tang et al. 2016](<https://arxiv.org/abs/1602.00370> "Visualizing Large-scale and High-dimensional Data; WWW").
 - **UMAP** - Embeds a fuzzy neighborhood graph. [McInnes et al. 2018](<https://arxiv.org/abs/1802.03426> "UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction; arXiv"); [code](<https://github.com/lmcinnes/umap>), [docs](<https://docs.rapids.ai/api/cuml/stable/api/generated/cuml.manifold.UMAP/>).
     - **Parametric UMAP** - Trains a neural encoder with the UMAP objective. [Sainburg et al. 2021](<https://arxiv.org/abs/2009.12981> "Parametric UMAP embeddings for representation and semi-supervised learning; Neural Comput."); [docs](<https://umap-learn.readthedocs.io/en/latest/parametric_umap.html>).
-    - **densMAP** - Adds relative local-density preservation to UMAP. [Narayan et al. 2021](<https://doi.org/10.1038/s41587-020-00801-7> "Assessing single-cell transcriptomic variability through density-preserving data visualization; Nat Biotechnol"); [docs](<https://umap-learn.readthedocs.io/en/latest/densmap_demo.html>).
+    - **densMAP** - Adds relative local-density preservation to UMAP. [Narayan et al. 2021 🔒](<https://doi.org/10.1038/s41587-020-00801-7> "Assessing single-cell transcriptomic variability through density-preserving data visualization; Nat Biotechnol"); [docs](<https://umap-learn.readthedocs.io/en/latest/densmap_demo.html>).
     - **MAPLE** - Adds self-supervised manifold modeling to UMAP using maximum manifold capacity representations. [Huang et al. 2026](<https://arxiv.org/abs/2601.20173> "MAPLE: Self-Supervised Learning-Enhanced Nonlinear Dimensionality Reduction for Visual Analysis; TVCG"), [Huang et al. 2026](<https://doi.org/10.1109/TVCG.2026.3694000> "MAPLE: Self-Supervised Learning-Enhanced Nonlinear Dimensionality Reduction for Visual Analysis; IEEE Trans. Visual. Comput. Graphics").
 - **TriMap** - Relative similarity preservation through triplets. [Amid and Warmuth 2019](<https://arxiv.org/abs/1910.00204> "TriMap: Large-scale Dimensionality Reduction Using Triplets; arXiv"); [code](<https://github.com/eamid/trimap>).
 - **PaCMAP** - Combines neighbor, mid-near, and distant pairs to preserve structure at different scales. [Wang et al. 2021](<https://arxiv.org/abs/2012.04456> "Understanding How Dimension Reduction Tools Work: An Empirical Approach to Deciphering t-SNE, UMAP, TriMAP, and PaCMAP for Data Visualization; JMLR"); [code](<https://github.com/YingfanWang/PaCMAP>).
-    - **LocalMAP** - Adjusts the neighborhood graph during optimization to improve local cluster separation. implemented in the PaCMAP repository. [Wang et al. 2025](<https://arxiv.org/abs/2412.15426> "Dimension Reduction with Locally Adjusted Graphs; AAAI").
+    - **LocalMAP** - Adjusts the neighborhood graph during optimization to improve local cluster separation. Implemented in the PaCMAP repository. [Wang et al. 2025](<https://arxiv.org/abs/2412.15426> "Dimension Reduction with Locally Adjusted Graphs; AAAI").
 - **ParamRepulsor** - Hard-negative mining and stronger repulsion address loss of local detail in parametric embeddings. [Huang et al. 2024](<https://arxiv.org/abs/2411.15894> "Navigating the Effect of Parametrization for Dimensionality Reduction; NeurIPS"); [code](<https://github.com/hyhuang00/ParamRepulsor>).
 - **New observations** - Ordinary UMAP and openTSNE place new points relative to a fitted embedding. Parametric UMAP instead evaluates a learned encoder; new-point support alone does not imply a neural mapping. [docs](<https://umap-learn.readthedocs.io/en/latest/transform.html>), [docs](<https://opentsne.readthedocs.io/en/stable/api/index.html#openTSNE.TSNEEmbedding.transform>).
 
@@ -87,7 +89,7 @@
 
 ### Reconstruction and masking
 
-- **Autoencoders** - Encoder-decoder learning through reconstruction. [Hinton and Salakhutdinov 2006](<https://doi.org/10.1126/science.1127647> "Reducing the Dimensionality of Data with Neural Networks; Science").
+- **Autoencoders** - Encoder-decoder learning through reconstruction. [Hinton and Salakhutdinov 2006](<https://www.cs.toronto.edu/~hinton/absps/science.pdf> "Reducing the Dimensionality of Data with Neural Networks; Science").
     - **Denoising** - Clean-input reconstruction from corrupted observations. [Vincent et al. 2010](<https://jmlr.org/papers/v11/vincent10a.html> "Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion; JMLR").
     - **Variational** - Probabilistic latent-variable modeling with an approximate posterior. [Kingma and Welling 2014](<https://arxiv.org/abs/1312.6114> "Auto-Encoding Variational Bayes; ICLR").
     - **Masked** - Reconstructs hidden image patches from visible ones. [He et al. 2022](<https://arxiv.org/abs/2111.06377> "Masked Autoencoders Are Scalable Vision Learners; CVPR"); [code](<https://github.com/facebookresearch/mae>).
