@@ -66,7 +66,7 @@
 
 - **MDS (multidimensional scaling)** - Fits coordinates to dissimilarities or their ordering. [Kruskal 1964](<https://doi.org/10.1007/BF02289565> "Multidimensional Scaling by Optimizing Goodness of Fit to a Nonmetric Hypothesis; Psychometrika"), [Little et al. 2018](<https://arxiv.org/abs/1812.11954> "Exact Cluster Recovery via Classical Multidimensional Scaling; arXiv"), [Little et al. 2022](<https://doi.org/10.1093/imaiai/iaac004> "An analysis of classical multidimensional scaling with applications to clustering; Information and Inference: A Journal of the IMA"); [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.manifold.MDS.html>).
 - **Sammon mapping** - Weighted distance reconstruction emphasizing smaller input distances. [Sammon 1969](<https://doi.org/10.1109/T-C.1969.222678> "A Nonlinear Mapping for Data Structure Analysis; IEEE Trans. Comput.").
-- **SOM (self-organizing maps)** - Updates grid-organized prototypes and their neighbors. [Kohonen 1982 🔒](<https://doi.org/10.1007/BF00337288> "Self-organized formation of topologically correct feature maps; Biol. Cybern.").
+- **SOM (self-organizing maps)** - Organizes adaptive units into a low-dimensional array whose responses reflect input topology. Kohonen also examines conditions where ordering fails. [Kohonen 1982 🔒](<https://doi.org/10.1007/BF00337288> "Self-organized formation of topologically correct feature maps; Biol. Cybern.").
 - **Isomap** - MDS on graph-approximated geodesic distances. [Tenenbaum et al. 2000](<https://doi.org/10.1126/science.290.5500.2319> "A Global Geometric Framework for Nonlinear Dimensionality Reduction; Science"); [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.manifold.Isomap.html>).
 - **LLE (locally linear embedding)** - Fits coordinates using fixed local linear reconstruction weights. [Roweis and Saul 2000](<https://doi.org/10.1126/science.290.5500.2323> "Nonlinear Dimensionality Reduction by Locally Linear Embedding; Science"); [docs](<https://scikit-learn.org/stable/modules/generated/sklearn.manifold.LocallyLinearEmbedding.html>).
     - **HLLE (Hessian eigenmapping)** - Manifold coordinates from local Hessian estimates. Supported by scikit-learn's LLE interface. [Donoho and Grimes 2003](<https://doi.org/10.1073/pnas.1031596100> "Hessian eigenmaps: Locally linear embedding techniques for high-dimensional data; PNAS").
@@ -90,35 +90,48 @@
 - **ParamRepulsor** - Hard-negative mining and stronger repulsion address loss of local detail in parametric embeddings. [Huang et al. 2024](<https://arxiv.org/abs/2411.15894> "Navigating the Effect of Parametrization for Dimensionality Reduction; NeurIPS"); [code](<https://github.com/hyhuang00/ParamRepulsor>).
 - **New observations** - Ordinary UMAP and openTSNE place new points relative to a fitted embedding. Parametric UMAP instead evaluates a learned encoder; new-point support alone does not imply a neural mapping. [docs](<https://umap-learn.readthedocs.io/en/latest/transform.html>), [docs](<https://opentsne.readthedocs.io/en/stable/api/index.html#openTSNE.TSNEEmbedding.transform>).
 
+## Competitive and modular representation learning
+
+- **Competitive learning** - Rumelhart and Zipser study how competition among units discovers feature detectors without target labels, including multilayer representations of nonlinearly separable patterns. [Rumelhart and Zipser 1985](<https://doi.org/10.1207/s15516709cog0901_5> "Feature Discovery by Competitive Learning*; Cognitive Science").
+- **Modular autoassociative learning** - Couples autoassociative modules into hierarchies to learn internal representations. An early approach to organizing learning in networks with multiple hidden levels. [Ballard 1987](<https://www.aaai.org/Papers/AAAI/1987/AAAI87-050.pdf> "Modular Learning in Neural Networks; AAAI").
+
 ## Learned representations
 
 ### Reconstruction and masking
 
 - **Autoencoders** - Encoder-decoder learning through reconstruction. [Hinton and Salakhutdinov 2006](<https://www.cs.toronto.edu/~hinton/absps/science.pdf> "Reducing the Dimensionality of Data with Neural Networks; Science").
-    - **Denoising** - Clean-input reconstruction from corrupted observations. [Vincent et al. 2010](<https://jmlr.org/papers/v11/vincent10a.html> "Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion; JMLR").
-    - **Variational** - Probabilistic latent-variable modeling with an approximate posterior. [Kingma and Welling 2014](<https://arxiv.org/abs/1312.6114> "Auto-Encoding Variational Bayes; ICLR").
-    - **Masked** - Reconstructs hidden image patches from visible ones. [He et al. 2022](<https://arxiv.org/abs/2111.06377> "Masked Autoencoders Are Scalable Vision Learners; CVPR"); [code](<https://github.com/facebookresearch/mae>).
+    - **Denoising** - Learns representations by reconstructing clean inputs from corrupted versions. Stacked denoising modules can initialize deeper networks. [Vincent et al. 2008](<https://www.iro.umontreal.ca/~vincentp/Publications/denoising_autoencoders_tr1316.pdf> "Extracting and composing robust features with denoising autoencoders; ICML"), [Vincent et al. 2010](<https://jmlr.org/papers/v11/vincent10a.html> "Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion; JMLR").
+    - **Contractive autoencoders** - Adds a penalty on the encoder's input Jacobian to reconstruction loss, encouraging local insensitivity of the representation to input changes. [Rifai et al. 2011](<https://www.iro.umontreal.ca/~lisa/pointeurs/ICML2011_explicit_invariance.pdf> "Contractive Auto-Encoders: Explicit Invariance During Feature Extraction; ICML").
+    - **Variational autoencoders** - See [Generative Models](https://mlpapers.org/generative-models/#latent-variable-models) for the latent distribution, approximate posterior and variational objective.
+    - **Masked** - Encodes visible image patches and reconstructs missing pixels with a lightweight decoder. Representation learning operates on the visible subset, separating encoder cost from full-image reconstruction. [He et al. 2022](<https://arxiv.org/abs/2111.06377> "Masked Autoencoders Are Scalable Vision Learners; CVPR"); [code](<https://github.com/facebookresearch/mae>).
+- **Autoencoder objectives** - Learns an encoder and reconstruction decoder under restrictions that prevent unrestricted copying. Covers bottlenecks, regularization, and links to latent-variable models. [Goodfellow et al. 2016](<https://www.deeplearningbook.org/contents/autoencoders.html> "Deep Learning; book").
 
 ### Contrastive learning
 
 - **Contrastive Predictive Coding** - Predicts future latent representations from autoregressive context using a contrastive loss and negative samples; learns sequential features without reconstructing raw observations. [van den Oord et al. 2018](<https://arxiv.org/abs/1807.03748> "Representation Learning with Contrastive Predictive Coding; arXiv").
-- **SimCLR** - Learns image representations by contrasting augmented views through a nonlinear projection head. ImageNet linear evaluation favors encoder features before the head over its output. [Chen et al. 2020](<https://arxiv.org/abs/2002.05709> "A Simple Framework for Contrastive Learning of Visual Representations; ICML"); [code](<https://github.com/google-research/simclr>).
+- **SimCLR** - Contrasts augmented image views through a nonlinear projection head. Augmentation composition and batch size affect learning. ImageNet linear evaluation favors encoder features before the head over its output. [Chen et al. 2020](<https://arxiv.org/abs/2002.05709> "A Simple Framework for Contrastive Learning of Visual Representations; ICML"); [code](<https://github.com/google-research/simclr>).
 - **Alignment and uniformity** - Relates contrastive learning to positive-pair alignment and uniform spread on the unit sphere. The analysis is asymptotic; normalization alone does not guarantee uniform learned features. [Wang and Isola 2020](<https://proceedings.mlr.press/v119/wang20k.html> "Understanding Contrastive Representation Learning through Alignment and Uniformity on the Hypersphere; ICML").
 
 ### Self-distillation and redundancy reduction
 
-- **BYOL** - An online network predicts a moving target network's representation without explicit negative pairs. [Grill et al. 2020](<https://arxiv.org/abs/2006.07733> "Bootstrap your own latent: A new approach to self-supervised Learning; NeurIPS").
-- **DINO** - Self-distillation without labels using a momentum teacher; the precursor to [DINOv2/v3](#images-and-video). [Caron et al. 2021](<https://arxiv.org/abs/2104.14294> "Emerging Properties in Self-Supervised Vision Transformers; ICCV").
+- **BYOL** - An online network predicts a moving-average target network's representation of another augmented view, without explicit negative pairs. [Grill et al. 2020](<https://arxiv.org/abs/2006.07733> "Bootstrap your own latent: A new approach to self-supervised Learning; NeurIPS").
+- **DINO** - Uses self-distillation without labels, a momentum teacher and multiple crops. Studies semantic structure in Transformer features through nearest-neighbor and linear classification. [Caron et al. 2021](<https://arxiv.org/abs/2104.14294> "Emerging Properties in Self-Supervised Vision Transformers; ICCV").
+    - **DINOv2** - Combines curated image data, scaled self-supervised training and distillation to produce reusable image-level and patch-level features. [Oquab et al. 2024](<https://arxiv.org/abs/2304.07193> "DINOv2: Learning Robust Visual Features without Supervision; TMLR"); [code](<https://github.com/facebookresearch/dinov2>).
+    - **DINOv3** - Uses Gram anchoring to address deterioration of dense features during extended self-supervised training. Studies scaling and post-training adaptation of visual representations. [Siméoni et al. 2026](<https://arxiv.org/abs/2508.10104> "DINOv3; NeurIPS"); [code](<https://github.com/facebookresearch/dinov3>).
 - **Barlow Twins** - Drives cross-correlation between two augmented views toward identity, combining agreement with redundancy reduction. This objective also underlies [TLDR](#representation-compression). [Zbontar et al. 2021](<https://arxiv.org/abs/2103.03230> "Barlow Twins: Self-Supervised Learning via Redundancy Reduction; ICML").
 - **VICReg** - Separates view agreement, per-feature variance control, and covariance regularization. Unlike Barlow Twins' cross-correlation objective, it explicitly constrains each branch's variance. [Bardes et al. 2022](<https://arxiv.org/abs/2105.04906> "VICReg: Variance-Invariance-Covariance Regularization for Self-Supervised Learning; ICLR"); [code](<https://github.com/facebookresearch/vicreg>).
 
 ### Prediction in representation space
 
+- **Self-predictive representations (SPR)** - Predicts future encodings from features and actions as an auxiliary loss for Rainbow. Improves Atari 100k performance over a matched augmented Rainbow baseline without using the learned dynamics for planning. [Schwarzer et al. 2021](<https://arxiv.org/abs/2007.05929v4> "Data-Efficient Reinforcement Learning with Self-Predictive Representations; ICLR"); [code](<https://github.com/mila-iqia/spr>).
 - **I-JEPA** - Predicts representations of masked image regions from visible context, rather than reconstructing pixels as in MAE. [Assran et al. 2023](<https://arxiv.org/abs/2301.08243> "Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture; CVPR").
 - **JEPA learning bias** - In deep linear models, JEPA's feature-learning order depends on regression coefficients and input-target covariance; masked reconstruction is led by covariance. Theory assumes diagonal covariances, small aligned initialization and stop-gradient targets. [Littwin et al. 2024](<https://proceedings.neurips.cc/paper_files/paper/2024/hash/a600f0f740605205133553cb74a1c107-Abstract-Conference.html> "How JEPA Avoids Noisy Features: The Implicit Bias of Deep Linear Self Distillation Networks; NeurIPS").
 - **LeJEPA** - Combines a joint-embedding predictive objective with sketched isotropic Gaussian regularization of embeddings. [Balestriero and LeCun 2025](<https://arxiv.org/abs/2511.08544> "LeJEPA: Provable and Scalable Self-Supervised Learning Without the Heuristics; arXiv").
+    - **LeVJEPA** - Extends LeJEPA to video using one encoder and 95% patch-token dropping. At matched pretraining FLOPs on 20% of K710, ViT-B improves ImageNet probing over V-JEPA 2 (61.0% vs 51.6%) but trails on Something-Something-v2 (40.4% vs 42.5%). [Kuhn et al. 2026](<https://arxiv.org/abs/2608.27395v1> "LeVJEPA: Efficient & Scalable Video Pretraining without the Heuristics; arXiv"); [code](<https://github.com/MLO-lab/LeVJEPA>).
 - **JEPA predictive closure** - In CIFAR-10 sequences with three-dimensional SIGReg latents and no stop-gradient, an unpredictable cue becomes more decodable when it helps predict other features. Altering predictive links shifts which feature sets are represented. [Levy et al. 2026](<https://arxiv.org/abs/2610.27364v1> "Predictive Closure: A Set-Level Characterization of JEPA’s Feature Selection; arXiv"); [code](<https://github.com/Mosh0110/predictive-closure>).
+- **V-JEPA 2.1** - Dense prediction over visible and masked tokens, plus intermediate-layer self-supervision, extends JEPA features to spatially structured image/video representations. [Mur-Labadia et al. 2026](<https://arxiv.org/abs/2603.14482> "V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning; ECCV"); [code](<https://github.com/facebookresearch/vjepa2>).
 - **Spectral Ghost** - Develops a spectral account of representation sufficiency connecting component analysis and self-supervised objectives. [Dai et al. 2026](<https://arxiv.org/abs/2601.20154> "Spectral Ghost in Representation Learning: from Component Analysis to Self-Supervised Learning; arXiv").
+- **Cross-modal agreement** - See [Interpretability](https://mlpapers.org/interpretability/#comparing-representations) for the Platonic representation hypothesis, similarity calibration and JEPA's scene-pairing results.
 
 ## Identifiability and disentanglement
 
@@ -129,50 +142,39 @@
 
 ### Images and video
 
-- **DINOv2** - Scales self-supervised learning to produce reusable image-level and patch-level features. [Oquab et al. 2024](<https://arxiv.org/abs/2304.07193> "DINOv2: Learning Robust Visual Features without Supervision; TMLR"); [code](<https://github.com/facebookresearch/dinov2>).
-- **DINOv3** - Gram anchoring addresses degradation of dense features during extended self-supervised training. [Siméoni et al. 2026](<https://arxiv.org/abs/2508.10104> "DINOv3; NeurIPS"); [code](<https://github.com/facebookresearch/dinov3>).
-- **V-JEPA 2.1** - Dense prediction over visible and masked tokens, plus intermediate-layer self-supervision, extends JEPA features to spatially structured image/video representations. [Mur-Labadia et al. 2026](<https://arxiv.org/abs/2603.14482> "V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning; ECCV"); [code](<https://github.com/facebookresearch/vjepa2>).
-- **FINO** - Adapts visual representations to scientific domains using discrete or continuous metadata alongside self-supervised learning. [Gardès et al. 2026](<https://arxiv.org/abs/2606.05107> "Who Needs Labels? Adapting Vision Foundation Models With the Metadata You Already Have; NeurIPS").
+- **Visual representations** - See [self-distillation](#self-distillation-and-redundancy-reduction) for DINO and [predictive representations](#prediction-in-representation-space) for JEPA. [Transfer Learning](https://mlpapers.org/transfer-learning/#frozen-features-and-fine-tuning) covers adaptation.
 
 ### Text and retrieval
 
-#### Sentence and document vectors
+<a id="sentence-and-document-vectors"></a>
+<a id="document-context-and-chunk-pooling"></a>
+<a id="sparse-and-multivector-scoring"></a>
 
-- **Sentence-BERT** - Siamese/triplet training makes BERT sentence vectors usable with cosine similarity, avoiding joint query-document encoding. [Reimers and Gurevych 2019](<https://arxiv.org/abs/1908.10084> "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks; EMNLP"); [code](<https://github.com/UKPLab/sentence-transformers>).
-- **E5** - Contrastive pretraining on weakly supervised text pairs; evaluated both without labeled-data fine-tuning and after supervised fine-tuning. [Wang et al. 2022](<https://arxiv.org/abs/2212.03533> "Text Embeddings by Weakly-Supervised Contrastive Pre-training; arXiv"); [code](<https://github.com/microsoft/unilm/tree/master/e5>).
-- **Qwen3 Embedding** - Adapts language-model backbones for instruction-aware multilingual text embeddings. [Zhang et al. 2025](<https://arxiv.org/abs/2506.05176> "Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models; arXiv"); [code](<https://github.com/QwenLM/Qwen3-Embedding>).
-
-#### Document context and chunk pooling
-
-- **Late chunking** - Encodes the document before pooling spans into chunk vectors. Across three encoders and four BEIR datasets, mean nDCG@10 rises from 52.2 to 54.0 with 256-token chunks; individual settings include ties and regressions. [Günther et al. 2024](<https://arxiv.org/abs/2409.04701> "Late Chunking: Contextual Chunk Embeddings Using Long-Context Embedding Models; arXiv").
-- **pplx-embed-context** - Combines diffusion-pretrained bidirectional encoders, contrastive learning, and late chunking for document-context-aware passage vectors. [Eslami et al. 2026](<https://arxiv.org/abs/2602.11151> "Diffusion-Pretrained Dense and Contextual Embeddings; ACL Industry").
-
-#### Sparse and multivector scoring
-
-- **ColBERT** - Independently encodes queries and passages into token vectors; sums each query token's maximum similarity to a passage token. Late interaction retains multiple vectors, whereas late chunking pools each chunk. [Khattab and Zaharia 2020](<https://arxiv.org/abs/2004.12832> "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT; SIGIR"); [code](<https://github.com/stanford-futuredata/ColBERT>).
-- **BGE-M3** - Jointly supports dense vectors, sparse lexical weights, and token multivectors through self-knowledge distillation. [Chen et al. 2024](<https://arxiv.org/abs/2402.03216> "M3-Embedding: Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation; Findings of ACL"); [code](<https://github.com/FlagOpen/FlagEmbedding>).
-- **Multivector expressivity** - Proves a worst-case representation-size separation between Chamfer similarity and single-vector inner products; this is not an empirical retrieval ranking. [Jayaram 2026](<https://arxiv.org/abs/2606.23475> "Multi-Vector Embeddings are Provably More Expressive than Single Vector Embeddings; arXiv").
+- **Text embeddings and retrieval** - See [NLP](https://mlpapers.org/nlp/#sentence-representations-and-retrieval) for sentence vectors, token scoring and document-context-aware chunk embeddings.
 
 ### Audio and time series
 
+#### Audio representations
+
 - **wav2vec 2.0** - Masks latent speech representations and predicts jointly learned quantized targets with a contrastive loss. Unlabeled audio pretraining precedes supervised speech-recognition fine-tuning. [Baevski et al. 2020](<https://arxiv.org/abs/2006.11477> "wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations; NeurIPS").
-- **TS2Vec** - Contrastive learning of contextual timestamp features, pooled for subsequences or whole series. [Yue et al. 2022](<https://arxiv.org/abs/2106.10466> "TS2Vec: Towards Universal Representation of Time Series; AAAI"); [code](<https://github.com/zhihanyue/ts2vec>).
 - **BEATs** - Iterates acoustic tokenization and masked audio-token prediction to learn general audio representations. [Chen et al. 2023](<https://proceedings.mlr.press/v202/chen23ag.html> "BEATs: Audio Pre-Training with Acoustic Tokenizers; ICML"); [code](<https://github.com/microsoft/unilm/tree/master/beats>).
+
+#### Time-series representations
+
+- **TS2Vec** - Contrastive learning of contextual timestamp features, pooled for subsequences or whole series. [Yue et al. 2022](<https://arxiv.org/abs/2106.10466> "TS2Vec: Towards Universal Representation of Time Series; AAAI"); [code](<https://github.com/zhihanyue/ts2vec>).
 - **MOMENT** - Masked time-series pretraining supports classification, forecasting, imputation, and anomaly detection. [Goswami et al. 2024](<https://arxiv.org/abs/2402.03885> "MOMENT: A Family of Open Time-series Foundation Models; ICML"); [code](<https://github.com/moment-timeseries-foundation-model/moment>).
 - **MantisV2** - Uses synthetic pretraining, layer selection and token aggregation for frozen time-series features. UCR ablations favor intermediate layers after more updates, but the final layer with 100K samples and 100 epochs; fine-tuning favors all layers. [Feofanov et al. 2026](<https://arxiv.org/abs/2602.17868> "MantisV2: Closing the Zero-Shot Gap in Time Series Classification with Synthetic Data and Test-Time Strategies; arXiv"); [code](<https://github.com/vfeofanov/mantis>).
 
 ### Cross-modal representations
 
-- **CLIP features** - Paired image and text encoders produce embeddings for cross-modal comparison; see [Multi-View Learning](https://mlpapers.org/multiview-learning/) for CLIP's objective and implementation.
-- **CLAP** - Contrastively trains audio and text encoders on paired recordings and descriptions. Their shared space supports audio retrieval and zero-shot classification through text prompts. [Elizalde et al. 2023](<https://arxiv.org/abs/2206.04769> "CLAP: Learning Audio Concepts From Natural Language Supervision; ICASSP").
-- **SigLIP 2** - Combines sigmoid image-text learning with self-distillation and masked prediction for multilingual alignment and dense visual features. [Tschannen et al. 2025](<https://arxiv.org/abs/2502.14786> "SigLIP 2: Multilingual Vision-Language Encoders with Improved Semantic Understanding, Localization, and Dense Features; arXiv"); [code](<https://github.com/google-research/big_vision>).
-- **Qwen3-VL-Embedding** - Shared vectors for text, images, document images, and video. The accompanying reranker scores pairs rather than producing independently indexable vectors. [Li et al. 2026](<https://arxiv.org/abs/2601.04720> "Qwen3-VL-Embedding and Qwen3-VL-Reranker: A Unified Framework for State-of-the-Art Multimodal Retrieval and Ranking; arXiv"); [code](<https://github.com/QwenLM/Qwen3-VL-Embedding>).
+- **Joint representations** - See [Multi-View Learning](https://mlpapers.org/multiview-learning/#cross-modal-alignment-and-fusion) for CLIP, CLAP, SigLIP 2 and multimodal retrieval.
 
 ## Representation compression
 
 - **Matryoshka representation learning** - Trains nested vector prefixes at multiple dimensions. Compression is built into representation training; arbitrary truncation of ordinary embeddings is not equivalent. [Kusupati et al. 2022](<https://arxiv.org/abs/2205.13147> "Matryoshka Representation Learning; NeurIPS"); [code](<https://github.com/RAIVNLab/MRL>).
 - **TLDR** - Compresses features using neighbor pairs and the Barlow Twins objective. On ROxford retrieval, the reported 128-dimensional codes gain 4.1 mAP points over whitened PCA with the tested GeM features and fitting data. [Kalantidis et al. 2022](<https://arxiv.org/abs/2110.09455> "TLDR: Twin Learning for Dimensionality Reduction; TMLR"); [code](<https://github.com/naver/tldr>).
 - **Retrieval dimension and margin** - For unit-vector retrieval supporting every k-subset of n documents, optimal-order margin requires dimension of order k log(n/k). This worst-case relevance family does not determine the dimension needed for a particular corpus. [Bangachev et al. 2026](<https://arxiv.org/abs/2605.23556v1> "Is Dimensionality a Barrier for Retrieval Models?; NeurIPS").
+- **Multivector expressivity** - Proves a worst-case representation-size separation between Chamfer similarity and single-vector inner products; this is not an empirical retrieval ranking. [Jayaram 2026](<https://arxiv.org/abs/2606.23475> "Multi-Vector Embeddings are Provably More Expressive than Single Vector Embeddings; arXiv").
 
 ## Evaluation and comparative evidence
 
@@ -182,6 +184,7 @@
 - **Intrinsic dimension** - Global and local estimators characterize data geometry; their estimates are not task-optimized embedding dimensions. [Bac et al. 2021](<https://arxiv.org/abs/2109.02596> "Scikit-dimension: a Python package for intrinsic dimension estimation; Entropy"); [docs](<https://scikit-dimension.readthedocs.io/>).
 - **Local versus global structure** - On tested 2D layouts, t-SNE/art-SNE preserve neighborhoods better, while PCA/TriMap/PaCMAP/ForceAtlas2 preserve distance ranks better on most datasets. These visualization results do not rank general predictive representations. [Huang et al. 2022](<https://pmc.ncbi.nlm.nih.gov/articles/PMC9296444/> "Towards a comprehensive evaluation of dimension reduction methods for transcriptomic data visualization; Commun. Biol.").
 - **MTEB / MMTEB** - Text-embedding evaluation across tasks, domains, and languages. [Muennighoff et al. 2023](<https://arxiv.org/abs/2210.07316> "MTEB: Massive Text Embedding Benchmark; EACL"), [Enevoldsen et al. 2025](<https://arxiv.org/abs/2502.13595> "MMTEB: Massive Multilingual Text Embedding Benchmark; ICLR"); [code](<https://github.com/embeddings-benchmark/mteb>).
+- **Prediction targets for control** - Latent prediction is more robust than observation prediction to added Gaussian distractors in four MuJoCo tasks. Observation prediction instead improves aggregate learning on 20 sparse-reward, partially observed MiniGrid tasks. [Ni et al. 2024](<https://proceedings.iclr.cc/paper_files/paper/2024/file/666c1861d709bd84e20b6e0e02a2c223-Paper-Conference.pdf> "Bridging State and History Representations: Understanding Self-Predictive RL; ICLR").
 
 <a id="extraction-choices"></a>
 
@@ -196,10 +199,13 @@
 
 ## Connections
 
+- **Prediction and control** - [MuZero](https://mlpapers.org/reinforcement-learning/#learned-dynamics-and-planning) predicts rewards, values and search policies. EfficientZero adds future-latent matching. [V-JEPA 2-AC](https://mlpapers.org/model-predictive-control/#latent-planning-and-comparative-evidence) plans with image-goal distances after self-supervised training.
 - **Sparse autoencoders for interpretability** - Overcomplete sparse features from internal model activations, evaluated for reconstruction and interpretability rather than compactness alone. [Gao et al. 2024](<https://arxiv.org/abs/2406.04093> "Scaling and evaluating sparse autoencoders; arXiv").
 
 ## Related topics
 
+- [Reinforcement learning](https://mlpapers.org/reinforcement-learning/)
+- [Model predictive control](https://mlpapers.org/model-predictive-control/)
 - [Feature selection](https://mlpapers.org/feature-selection/)
 - [Neural networks](https://mlpapers.org/neural-nets/)
 - [Multiview learning](https://mlpapers.org/multiview-learning/)
