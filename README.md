@@ -156,8 +156,7 @@
 
 #### Audio representations
 
-- **wav2vec 2.0** - Masks latent speech representations and predicts jointly learned quantized targets with a contrastive loss. Unlabeled audio pretraining precedes supervised speech-recognition fine-tuning. [Baevski et al. 2020](<https://arxiv.org/abs/2006.11477> "wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations; NeurIPS").
-- **BEATs** - Iterates acoustic tokenization and masked audio-token prediction to learn general audio representations. [Chen et al. 2023](<https://proceedings.mlr.press/v202/chen23ag.html> "BEATs: Audio Pre-Training with Acoustic Tokenizers; ICML"); [code](<https://github.com/microsoft/unilm/tree/master/beats>).
+- **Acoustic representations** - See [Audio and Speech](https://mlpapers.org/audio/#self-supervised-acoustic-representations) for wav2vec 2.0, HuBERT and BEATs.
 
 #### Time-series representations
 
